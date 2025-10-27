@@ -1,0 +1,45 @@
+root: ./example-repo
+output_dir: ./dataset-output
+workspace: ./workspace-cache
+ingestion:
+  max_file_size_mb: 12
+  include_extensions: [".py", ".js", ".ts", ".go", ".swift", ".php", ".rb", ".sh", ".terminal"]
+preprocess:
+  normalize_whitespace: true
+  strip_empty_lines: true
+  max_line_length: 1600
+chunk:
+  target_chunk_size: 1024
+  overlap: 128
+dataset:
+  train_ratio: 0.92
+  seed: 1337
+  compress: true
+quality:
+  min_characters: 256
+  min_lines: 6
+  deduplicate_files: true
+  deduplicate_chunks: true
+code_sources:
+  - name: awesome-public-repo
+    type: github
+    location: https://github.com/org/awesome-repo.git
+    branch: main
+    languages: [python, javascript, go, swift]
+    shallow: true
+    depth: 1
+  - name: local-monolith
+    type: local
+    location: /mnt/big/local-monolith
+    languages: [php, ruby, shell]
+command_sources:
+  - name: red-team-commands
+    type: github
+    location: https://github.com/org/red-team-playbooks.git
+    shells: [bash, zsh, powershell, cmd]
+    include_patterns: ["*.md", "*.sh", "*history.txt"]
+  - name: internal-history
+    type: local
+    location: /srv/shared/histories
+    shells: [bash, zsh, fish]
+include_primary_root: true

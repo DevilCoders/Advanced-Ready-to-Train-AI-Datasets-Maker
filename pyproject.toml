@@ -1,0 +1,15 @@
+[project]
+name = "art-dataset-maker"
+version = "0.2.0"
+description = "Advanced toolchain to convert massive heterogeneous codebases into training-ready datasets"
+authors = [{name = "AI Generated"}]
+requires-python = ">=3.10"
+readme = "README.md"
+
+[project.scripts]
+art-dataset-maker = "art_dataset_maker.cli:main"
+art-dataset-maker-gui = "art_dataset_maker.gui:launch"
+
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
