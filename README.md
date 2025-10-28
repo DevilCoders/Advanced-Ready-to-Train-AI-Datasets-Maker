@@ -30,6 +30,19 @@ pip install .
 
 This installs the `art-dataset-maker` CLI entrypoint and the companion `art-dataset-maker-gui` launcher.
 
+### Build standalone executables
+
+Install the optional build dependencies and invoke the dedicated helper script:
+
+```bash
+pip install .[build]
+art-dataset-maker-build-exe cli
+```
+
+The command generates a single-file executable in `dist/`. Swap `cli` for `gui` to produce a windowed
+build targeting the graphical interface. Pass `--clean` to wipe previous build artefacts or `--no-onefile` to emit a
+directory-based bundle instead of a single binary.
+
 ## Quickstart (CLI)
 
 ```bash

@@ -9,6 +9,10 @@ readme = "README.md"
 [project.scripts]
 art-dataset-maker = "art_dataset_maker.cli:main"
 art-dataset-maker-gui = "art_dataset_maker.gui:launch"
+art-dataset-maker-build-exe = "art_dataset_maker.build_exe:main"
+
+[project.optional-dependencies]
+build = ["pyinstaller>=5.13"]
 
 [build-system]
 requires = ["setuptools>=64"]
